@@ -1,0 +1,11 @@
+@model Minor.Case1.FrontEnd.FrontEnd.ViewModels.UploadResultViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>Aantal   geupload: @Html.DisplayFor(model => model.AantalGeupload)</h2>
+<h2>Aantal Duplicaten: @Html.DisplayFor(model => model.AantalDuplicaten)</h2>
+
+<div>
+    <a asp-action="Index">Terug naar Uploaden</a>
+</div>

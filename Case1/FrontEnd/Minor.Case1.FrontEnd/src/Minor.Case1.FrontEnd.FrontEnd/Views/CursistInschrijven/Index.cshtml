@@ -1,0 +1,14 @@
+@model Minor.Case1.FrontEnd.FrontEnd.Agents.Models.Inschrijving
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" asp-action="Create" asp-controller="CursistInschrijven" enctype="multipart/form-data">
+    @Html.HiddenFor(model => model.CursusInstantieId)
+    @Html.HiddenFor(model => model.CursistId)
+    @Html.LabelFor(model => model.Cursist.Voornaam):   @Html.EditorFor(model => model.Cursist.Voornaam)
+    @Html.LabelFor(model => model.Cursist.Achternaam): @Html.EditorFor(model => model.Cursist.Achternaam)
+    <button type="submit" class="btn btn-default">Inschrijven</button>
+</form>

@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  minor.dagxx.buildoefening:
+    image: user/minor.dagxx.buildoefening${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile

@@ -1,0 +1,26 @@
+@model Minor.Case1.FrontEnd.FrontEnd.ViewModels.InschrijvingenViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Overzicht van inschrijvingen</h2>
+@Html.ActionLink("Inschrijven", "Index", "CursistInschrijven", new { id = Model.InstantieId })
+<table class="table">
+    <thead>
+        <tr>            
+            <th>Naam</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Inschrijvingen) {
+        <tr>
+            <td>
+                @item.Cursist.Voornaam @item.Cursist.Achternaam
+            </td>           
+        </tr>
+}
+    </tbody>
+</table>
+
+

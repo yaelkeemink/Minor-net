@@ -1,0 +1,194 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "A Monument service",
+    "description": "Restauration of monuments",
+    "termsOfService": "None"
+  },
+  "basePath": "/",
+  "paths": {
+    "/api/CursusInstantie": {
+      "get": {
+        "tags": [ "CursusInstantie" ],
+        "operationId": "GetCursusInstantiesVanEenBepaaldeWeek",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/DateModel" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CursusInstantie" }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "CursusInstantie" ],
+        "operationId": "PostCursusInstanties",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "values",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CursusInstantie" }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Inschrijving": {
+      "get": {
+        "tags": [ "Inschrijving" ],
+        "operationId": "GetInschrijvingenByCursusInstantieId",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Inschrijving" }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Inschrijving" ],
+        "operationId": "PostInschrijving",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "inschrijving",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/Inschrijving" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "DateModel": {
+      "type": "object",
+      "properties": {
+        "startDatum": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "eindDatum": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "jaar": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "week": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "CursusInstantie": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cursusId": { "type": "string" },
+        "startDatum": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "cursus": { "$ref": "#/definitions/Cursus" }
+      }
+    },
+    "Cursus": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "titel": { "type": "string" },
+        "dagen": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Inschrijving": {
+      "type": "object",
+      "properties": {
+        "cursistId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cursusInstantieId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "instantie": { "$ref": "#/definitions/CursusInstantie" },
+        "cursist": { "$ref": "#/definitions/Cursist" }
+      }
+    },
+    "Cursist": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "voornaam": { "type": "string" },
+        "achternaam": { "type": "string" }
+      }
+    }
+  },
+  "securityDefinitions": {}
+}

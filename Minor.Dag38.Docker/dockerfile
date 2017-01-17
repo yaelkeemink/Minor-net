@@ -1,0 +1,7 @@
+﻿FROM microsoft/dotnet:1.0.1-core
+WORKDIR /app
+ARG source=./bin/Release/Publish
+ENV ASPNETCORE_URLS http://*:80
+EXPOSE 80
+ENTRYPOINT ["dotnet", "Minor.Dag38.Docker.dll"]
+COPY $source .

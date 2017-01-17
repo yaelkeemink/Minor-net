@@ -1,0 +1,57 @@
+@model Minor.Case1.FrontEnd.FrontEnd.ViewModels.CursusInstantieDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Overzicht</h2>
+
+<form asp-action="Details"asp-controller="CursusUploaden" method="post">
+    @Html.LabelFor(model => model.WeekNummer): @Html.EditorFor(model => model.WeekNummer) @Html.LabelFor(model => model.Jaar): @Html.EditorFor(model => model.Jaar)<br />
+    <button type="submit" class="btn btn-default">Toon week</button>
+</form>
+<div style="padding-top:5px">
+    <form asp-action="WeekVerder" asp-controller="CursusUploaden" method="post" style="float:right">
+        @Html.HiddenFor(model => model.WeekNummer)
+        @Html.HiddenFor(model => model.Jaar)
+        <button type="submit" class="btn btn-default">Volgende week</button>
+    </form>
+    <form asp-action="WeekTerug" asp-controller="CursusUploaden" method="post">
+        @Html.HiddenFor(model => model.WeekNummer)
+        @Html.HiddenFor(model => model.Jaar)
+        <button type="submit" class="btn btn-default">Vorige week</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>            
+            <th>Startdatum</th>
+            <th>Lengte</th>
+            <th>Cursus naam</th>
+            <th>CursusCode</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Instanties) {
+        <tr>
+            <td>
+                @item.StartDatum
+            </td>
+            <td>
+                @item.Cursus.Dagen dagen
+            </td>
+            <td>
+                @item.Cursus.Titel                
+            </td>
+            <td>
+                @item.Cursus.Code
+            </td>        
+            <td>
+                @Html.ActionLink("Inschrijven", "Index", "CursistInschrijven", new {  id=item.Id })
+                @Html.ActionLink("Inschrijvingen", "InschrijvingenBekijken", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

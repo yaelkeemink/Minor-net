@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: rabbit
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "8080:15672"
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      POSTGRES_PASSWORD: welkom
+      POSTGRES_USER: admin
+      POSTGRES_DB: GameServer
+  minor.dag39.gamesbackend.webapi:
+    image: user/minor.dag39.gamesbackend.webapi${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80"
+    depends_on:
+      - db
+networks:
+  default:
+    driver: bridge

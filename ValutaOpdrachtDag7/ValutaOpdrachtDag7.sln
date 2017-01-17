@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BC449D7E-DAF8-4548-AF79-F26D4B4DB483}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A329DBC2-A25A-48E3-9DB4-7EAC70634A88}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ValutaOpdracht", "src\ClassLibrary1\ValutaOpdracht.xproj", "{AB11D9AB-803A-4A42-993E-5087AA7EA586}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ValutaOpdracht.Test", "src\ConsoleApp1\ValutaOpdracht.Test.xproj", "{4CDB31CB-988E-4BC8-B189-89ED83C98AE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D9A9CE26-75CD-4A36-870D-BD97C547563C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB11D9AB-803A-4A42-993E-5087AA7EA586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB11D9AB-803A-4A42-993E-5087AA7EA586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB11D9AB-803A-4A42-993E-5087AA7EA586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB11D9AB-803A-4A42-993E-5087AA7EA586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDB31CB-988E-4BC8-B189-89ED83C98AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDB31CB-988E-4BC8-B189-89ED83C98AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDB31CB-988E-4BC8-B189-89ED83C98AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDB31CB-988E-4BC8-B189-89ED83C98AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB11D9AB-803A-4A42-993E-5087AA7EA586} = {BC449D7E-DAF8-4548-AF79-F26D4B4DB483}
+		{4CDB31CB-988E-4BC8-B189-89ED83C98AE4} = {D9A9CE26-75CD-4A36-870D-BD97C547563C}
+	EndGlobalSection
+EndGlobal
